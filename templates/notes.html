@@ -1,0 +1,338 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	EDULICIOUS - Notes
+{% endblock title %}
+
+{% block style %}
+
+<style>
+    h1
+    {
+        font-size: 60px;
+        font-family: cursive;
+        font-weight: bolder;
+    }
+    .cls
+    {
+        border: 2px;
+        border-style: ridge;
+        border-color: lime;
+        border-radius: 25px;
+        color: yellow;
+        background-color: #493c3c86;
+        font-size: 25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 700;
+        text-align: center;
+    }
+    .cls:hover
+    {
+        color: orangered;
+        background-color: rgba(0, 255, 255, 0.562);
+    }
+    .col-6
+    {
+        border: 2px;
+        border-style: ridge;
+        border-color: lime;
+        border-radius: 25px;
+        overflow: auto;
+        max-height: 573.33px;
+        text-align: center;
+    }
+    .card-img-top
+    {
+        height: 170px;
+        width: 170px;
+    }
+    .card
+    {
+        max-height: 320px;
+        max-width: 170px;
+        height: 320px;
+        width: 170px;
+        margin: 28px;
+        background-color: #2e2e2cf8;
+        border-radius: 20px 70px 20px 20px;
+        margin-left: 33%;
+        }
+    .card-text, .card-text:link
+    {
+        color: lime;
+        font-size: large;
+        font-weight: 500;
+        word-wrap: break-word;
+        text-decoration: none;
+    }
+    .card-text:hover
+    {
+        color: darkorange;
+        text-decoration: none;
+    }
+    
+
+</style>
+
+{% endblock style %}
+
+{% block body %}
+    
+    <div class="container mt-3">
+        <h1>Worksheets and Notes</h1>
+        <div class="row my-4">
+  <div class="col-4">
+    <div class="nav flex-column nav-tab" id="v-tab" role="tablist" aria-orientation="vertical">
+        {% if show_1 %}
+      <a class="nav-link cls" id="v-cls_1-tab" data-toggle="tab" href="#v-cls_1" role="tab" aria-controls="v-cls_1" aria-selected="false">Class 1</a>
+      <a class="nav-link cls disabled" id="v-cls_2-tab" data-toggle="tab" href="#v-cls_2" role="tab" aria-controls="v-cls_2" aria-selected="false">Class 2</a>
+      <a class="nav-link cls disabled" id="v-cls_3-tab" data-toggle="tab" href="#v-cls_3" role="tab" aria-controls="v-cls_3" aria-selected="false">Class 3</a>
+      <a class="nav-link cls disabled" id="v-cls_4-tab" data-toggle="tab" href="#v-cls_4" role="tab" aria-controls="v-cls_4" aria-selected="false">Class 4</a>
+      <a class="nav-link cls disabled" id="v-cls_5-tab" data-toggle="tab" href="#v-cls_5" role="tab" aria-controls="v-cls_5" aria-selected="false">Class 5</a>
+      <a class="nav-link cls disabled" id="v-cls_6-tab" data-toggle="tab" href="#v-cls_6" role="tab" aria-controls="v-cls_6" aria-selected="false">Class 6</a>
+      <a class="nav-link cls disabled" id="v-cls_7-tab" data-toggle="tab" href="#v-cls_7" role="tab" aria-controls="v-cls_7" aria-selected="false">Class 7</a>
+      <a class="nav-link cls disabled" id="v-cls_8-tab" data-toggle="tab" href="#v-cls_8" role="tab" aria-controls="v-cls_8" aria-selected="false">Class 8</a>
+      <a class="nav-link cls disabled" id="v-cls_9-tab" data-toggle="tab" href="#v-cls_9" role="tab" aria-controls="v-cls_9" aria-selected="false">Class 9</a>
+      <a class="nav-link cls disabled" id="v-cls_10-tab" data-toggle="tab" href="#v-cls_10" role="tab" aria-controls="v-cls_10" aria-selected="false">Class 10</a>
+      {% elif show_2 %}
+      <a class="nav-link cls disabled" id="v-cls_1-tab" data-toggle="tab" href="#v-cls_1" role="tab" aria-controls="v-cls_1" aria-selected="false">Class 1</a>
+      <a class="nav-link cls" id="v-cls_2-tab" data-toggle="tab" href="#v-cls_2" role="tab" aria-controls="v-cls_2" aria-selected="false">Class 2</a>
+      <a class="nav-link cls disabled" id="v-cls_3-tab" data-toggle="tab" href="#v-cls_3" role="tab" aria-controls="v-cls_3" aria-selected="false">Class 3</a>
+      <a class="nav-link cls disabled" id="v-cls_4-tab" data-toggle="tab" href="#v-cls_4" role="tab" aria-controls="v-cls_4" aria-selected="false">Class 4</a>
+      <a class="nav-link cls disabled" id="v-cls_5-tab" data-toggle="tab" href="#v-cls_5" role="tab" aria-controls="v-cls_5" aria-selected="false">Class 5</a>
+      <a class="nav-link cls disabled" id="v-cls_6-tab" data-toggle="tab" href="#v-cls_6" role="tab" aria-controls="v-cls_6" aria-selected="false">Class 6</a>
+      <a class="nav-link cls disabled" id="v-cls_7-tab" data-toggle="tab" href="#v-cls_7" role="tab" aria-controls="v-cls_7" aria-selected="false">Class 7</a>
+      <a class="nav-link cls disabled" id="v-cls_8-tab" data-toggle="tab" href="#v-cls_8" role="tab" aria-controls="v-cls_8" aria-selected="false">Class 8</a>
+      <a class="nav-link cls disabled" id="v-cls_9-tab" data-toggle="tab" href="#v-cls_9" role="tab" aria-controls="v-cls_9" aria-selected="false">Class 9</a>
+      <a class="nav-link cls disabled" id="v-cls_10-tab" data-toggle="tab" href="#v-cls_10" role="tab" aria-controls="v-cls_10" aria-selected="false">Class 10</a>
+      {% elif show_3 %}
+      <a class="nav-link cls disabled" id="v-cls_1-tab" data-toggle="tab" href="#v-cls_1" role="tab" aria-controls="v-cls_1" aria-selected="false">Class 1</a>
+      <a class="nav-link cls disabled" id="v-cls_2-tab" data-toggle="tab" href="#v-cls_2" role="tab" aria-controls="v-cls_2" aria-selected="false">Class 2</a>
+      <a class="nav-link cls" id="v-cls_3-tab" data-toggle="tab" href="#v-cls_3" role="tab" aria-controls="v-cls_3" aria-selected="false">Class 3</a>
+      <a class="nav-link cls disabled" id="v-cls_4-tab" data-toggle="tab" href="#v-cls_4" role="tab" aria-controls="v-cls_4" aria-selected="false">Class 4</a>
+      <a class="nav-link cls disabled" id="v-cls_5-tab" data-toggle="tab" href="#v-cls_5" role="tab" aria-controls="v-cls_5" aria-selected="false">Class 5</a>
+      <a class="nav-link cls disabled" id="v-cls_6-tab" data-toggle="tab" href="#v-cls_6" role="tab" aria-controls="v-cls_6" aria-selected="false">Class 6</a>
+      <a class="nav-link cls disabled" id="v-cls_7-tab" data-toggle="tab" href="#v-cls_7" role="tab" aria-controls="v-cls_7" aria-selected="false">Class 7</a>
+      <a class="nav-link cls disabled" id="v-cls_8-tab" data-toggle="tab" href="#v-cls_8" role="tab" aria-controls="v-cls_8" aria-selected="false">Class 8</a>
+      <a class="nav-link cls disabled" id="v-cls_9-tab" data-toggle="tab" href="#v-cls_9" role="tab" aria-controls="v-cls_9" aria-selected="false">Class 9</a>
+      <a class="nav-link cls disabled" id="v-cls_10-tab" data-toggle="tab" href="#v-cls_10" role="tab" aria-controls="v-cls_10" aria-selected="false">Class 10</a>
+      {% elif show_4 %}
+      <a class="nav-link cls disabled" id="v-cls_1-tab" data-toggle="tab" href="#v-cls_1" role="tab" aria-controls="v-cls_1" aria-selected="false">Class 1</a>
+      <a class="nav-link cls disabled" id="v-cls_2-tab" data-toggle="tab" href="#v-cls_2" role="tab" aria-controls="v-cls_2" aria-selected="false">Class 2</a>
+      <a class="nav-link cls disabled" id="v-cls_3-tab" data-toggle="tab" href="#v-cls_3" role="tab" aria-controls="v-cls_3" aria-selected="false">Class 3</a>
+      <a class="nav-link cls" id="v-cls_4-tab" data-toggle="tab" href="#v-cls_4" role="tab" aria-controls="v-cls_4" aria-selected="false">Class 4</a>
+      <a class="nav-link cls disabled" id="v-cls_5-tab" data-toggle="tab" href="#v-cls_5" role="tab" aria-controls="v-cls_5" aria-selected="false">Class 5</a>
+      <a class="nav-link cls disabled" id="v-cls_6-tab" data-toggle="tab" href="#v-cls_6" role="tab" aria-controls="v-cls_6" aria-selected="false">Class 6</a>
+      <a class="nav-link cls disabled" id="v-cls_7-tab" data-toggle="tab" href="#v-cls_7" role="tab" aria-controls="v-cls_7" aria-selected="false">Class 7</a>
+      <a class="nav-link cls disabled" id="v-cls_8-tab" data-toggle="tab" href="#v-cls_8" role="tab" aria-controls="v-cls_8" aria-selected="false">Class 8</a>
+      <a class="nav-link cls disabled" id="v-cls_9-tab" data-toggle="tab" href="#v-cls_9" role="tab" aria-controls="v-cls_9" aria-selected="false">Class 9</a>
+      <a class="nav-link cls disabled" id="v-cls_10-tab" data-toggle="tab" href="#v-cls_10" role="tab" aria-controls="v-cls_10" aria-selected="false">Class 10</a>
+      {% elif show_5 %}
+      <a class="nav-link cls disabled" id="v-cls_1-tab" data-toggle="tab" href="#v-cls_1" role="tab" aria-controls="v-cls_1" aria-selected="false">Class 1</a>
+      <a class="nav-link cls disabled" id="v-cls_2-tab" data-toggle="tab" href="#v-cls_2" role="tab" aria-controls="v-cls_2" aria-selected="false">Class 2</a>
+      <a class="nav-link cls disabled" id="v-cls_3-tab" data-toggle="tab" href="#v-cls_3" role="tab" aria-controls="v-cls_3" aria-selected="false">Class 3</a>
+      <a class="nav-link cls disabled" id="v-cls_4-tab" data-toggle="tab" href="#v-cls_4" role="tab" aria-controls="v-cls_4" aria-selected="false">Class 4</a>
+      <a class="nav-link cls" id="v-cls_5-tab" data-toggle="tab" href="#v-cls_5" role="tab" aria-controls="v-cls_5" aria-selected="false">Class 5</a>
+      <a class="nav-link cls disabled" id="v-cls_6-tab" data-toggle="tab" href="#v-cls_6" role="tab" aria-controls="v-cls_6" aria-selected="false">Class 6</a>
+      <a class="nav-link cls disabled" id="v-cls_7-tab" data-toggle="tab" href="#v-cls_7" role="tab" aria-controls="v-cls_7" aria-selected="false">Class 7</a>
+      <a class="nav-link cls disabled" id="v-cls_8-tab" data-toggle="tab" href="#v-cls_8" role="tab" aria-controls="v-cls_8" aria-selected="false">Class 8</a>
+      <a class="nav-link cls disabled" id="v-cls_9-tab" data-toggle="tab" href="#v-cls_9" role="tab" aria-controls="v-cls_9" aria-selected="false">Class 9</a>
+      <a class="nav-link cls disabled" id="v-cls_10-tab" data-toggle="tab" href="#v-cls_10" role="tab" aria-controls="v-cls_10" aria-selected="false">Class 10</a>
+      {% elif show_6 %}
+      <a class="nav-link cls disabled" id="v-cls_1-tab" data-toggle="tab" href="#v-cls_1" role="tab" aria-controls="v-cls_1" aria-selected="false">Class 1</a>
+      <a class="nav-link cls disabled" id="v-cls_2-tab" data-toggle="tab" href="#v-cls_2" role="tab" aria-controls="v-cls_2" aria-selected="false">Class 2</a>
+      <a class="nav-link cls disabled" id="v-cls_3-tab" data-toggle="tab" href="#v-cls_3" role="tab" aria-controls="v-cls_3" aria-selected="false">Class 3</a>
+      <a class="nav-link cls disabled" id="v-cls_4-tab" data-toggle="tab" href="#v-cls_4" role="tab" aria-controls="v-cls_4" aria-selected="false">Class 4</a>
+      <a class="nav-link cls disabled" id="v-cls_5-tab" data-toggle="tab" href="#v-cls_5" role="tab" aria-controls="v-cls_5" aria-selected="false">Class 5</a>
+      <a class="nav-link cls" id="v-cls_6-tab" data-toggle="tab" href="#v-cls_6" role="tab" aria-controls="v-cls_6" aria-selected="false">Class 6</a>
+      <a class="nav-link cls disabled" id="v-cls_7-tab" data-toggle="tab" href="#v-cls_7" role="tab" aria-controls="v-cls_7" aria-selected="false">Class 7</a>
+      <a class="nav-link cls disabled" id="v-cls_8-tab" data-toggle="tab" href="#v-cls_8" role="tab" aria-controls="v-cls_8" aria-selected="false">Class 8</a>
+      <a class="nav-link cls disabled" id="v-cls_9-tab" data-toggle="tab" href="#v-cls_9" role="tab" aria-controls="v-cls_9" aria-selected="false">Class 9</a>
+      <a class="nav-link cls disabled" id="v-cls_10-tab" data-toggle="tab" href="#v-cls_10" role="tab" aria-controls="v-cls_10" aria-selected="false">Class 10</a>
+      {% elif show_7 %}
+      <a class="nav-link cls disabled" id="v-cls_1-tab" data-toggle="tab" href="#v-cls_1" role="tab" aria-controls="v-cls_1" aria-selected="false">Class 1</a>
+      <a class="nav-link cls disabled" id="v-cls_2-tab" data-toggle="tab" href="#v-cls_2" role="tab" aria-controls="v-cls_2" aria-selected="false">Class 2</a>
+      <a class="nav-link cls disabled" id="v-cls_3-tab" data-toggle="tab" href="#v-cls_3" role="tab" aria-controls="v-cls_3" aria-selected="false">Class 3</a>
+      <a class="nav-link cls disabled" id="v-cls_4-tab" data-toggle="tab" href="#v-cls_4" role="tab" aria-controls="v-cls_4" aria-selected="false">Class 4</a>
+      <a class="nav-link cls disabled" id="v-cls_5-tab" data-toggle="tab" href="#v-cls_5" role="tab" aria-controls="v-cls_5" aria-selected="false">Class 5</a>
+      <a class="nav-link cls disabled" id="v-cls_6-tab" data-toggle="tab" href="#v-cls_6" role="tab" aria-controls="v-cls_6" aria-selected="false">Class 6</a>
+      <a class="nav-link cls" id="v-cls_7-tab" data-toggle="tab" href="#v-cls_7" role="tab" aria-controls="v-cls_7" aria-selected="false">Class 7</a>
+      <a class="nav-link cls disabled" id="v-cls_8-tab" data-toggle="tab" href="#v-cls_8" role="tab" aria-controls="v-cls_8" aria-selected="false">Class 8</a>
+      <a class="nav-link cls disabled" id="v-cls_9-tab" data-toggle="tab" href="#v-cls_9" role="tab" aria-controls="v-cls_9" aria-selected="false">Class 9</a>
+      <a class="nav-link cls disabled" id="v-cls_10-tab" data-toggle="tab" href="#v-cls_10" role="tab" aria-controls="v-cls_10" aria-selected="false">Class 10</a>
+      {% elif show_8 %}
+      <a class="nav-link cls disabled" id="v-cls_1-tab" data-toggle="tab" href="#v-cls_1" role="tab" aria-controls="v-cls_1" aria-selected="false">Class 1</a>
+      <a class="nav-link cls disabled" id="v-cls_2-tab" data-toggle="tab" href="#v-cls_2" role="tab" aria-controls="v-cls_2" aria-selected="false">Class 2</a>
+      <a class="nav-link cls disabled" id="v-cls_3-tab" data-toggle="tab" href="#v-cls_3" role="tab" aria-controls="v-cls_3" aria-selected="false">Class 3</a>
+      <a class="nav-link cls disabled" id="v-cls_4-tab" data-toggle="tab" href="#v-cls_4" role="tab" aria-controls="v-cls_4" aria-selected="false">Class 4</a>
+      <a class="nav-link cls disabled" id="v-cls_5-tab" data-toggle="tab" href="#v-cls_5" role="tab" aria-controls="v-cls_5" aria-selected="false">Class 5</a>
+      <a class="nav-link cls disabled" id="v-cls_6-tab" data-toggle="tab" href="#v-cls_6" role="tab" aria-controls="v-cls_6" aria-selected="false">Class 6</a>
+      <a class="nav-link cls disabled" id="v-cls_7-tab" data-toggle="tab" href="#v-cls_7" role="tab" aria-controls="v-cls_7" aria-selected="false">Class 7</a>
+      <a class="nav-link cls" id="v-cls_8-tab" data-toggle="tab" href="#v-cls_8" role="tab" aria-controls="v-cls_8" aria-selected="false">Class 8</a>
+      <a class="nav-link cls disabled" id="v-cls_9-tab" data-toggle="tab" href="#v-cls_9" role="tab" aria-controls="v-cls_9" aria-selected="false">Class 9</a>
+      <a class="nav-link cls disabled" id="v-cls_10-tab" data-toggle="tab" href="#v-cls_10" role="tab" aria-controls="v-cls_10" aria-selected="false">Class 10</a>
+      {% elif show_9 %}
+      <a class="nav-link cls disabled" id="v-cls_1-tab" data-toggle="tab" href="#v-cls_1" role="tab" aria-controls="v-cls_1" aria-selected="false">Class 1</a>
+      <a class="nav-link cls disabled" id="v-cls_2-tab" data-toggle="tab" href="#v-cls_2" role="tab" aria-controls="v-cls_2" aria-selected="false">Class 2</a>
+      <a class="nav-link cls disabled" id="v-cls_3-tab" data-toggle="tab" href="#v-cls_3" role="tab" aria-controls="v-cls_3" aria-selected="false">Class 3</a>
+      <a class="nav-link cls disabled" id="v-cls_4-tab" data-toggle="tab" href="#v-cls_4" role="tab" aria-controls="v-cls_4" aria-selected="false">Class 4</a>
+      <a class="nav-link cls disabled" id="v-cls_5-tab" data-toggle="tab" href="#v-cls_5" role="tab" aria-controls="v-cls_5" aria-selected="false">Class 5</a>
+      <a class="nav-link cls disabled" id="v-cls_6-tab" data-toggle="tab" href="#v-cls_6" role="tab" aria-controls="v-cls_6" aria-selected="false">Class 6</a>
+      <a class="nav-link cls disabled" id="v-cls_7-tab" data-toggle="tab" href="#v-cls_7" role="tab" aria-controls="v-cls_7" aria-selected="false">Class 7</a>
+      <a class="nav-link cls disabled" id="v-cls_8-tab" data-toggle="tab" href="#v-cls_8" role="tab" aria-controls="v-cls_8" aria-selected="false">Class 8</a>
+      <a class="nav-link cls" id="v-cls_9-tab" data-toggle="tab" href="#v-cls_9" role="tab" aria-controls="v-cls_9" aria-selected="false">Class 9</a>
+      <a class="nav-link cls disabled" id="v-cls_10-tab" data-toggle="tab" href="#v-cls_10" role="tab" aria-controls="v-cls_10" aria-selected="false">Class 10</a>
+      {% elif show_10 %}
+      <a class="nav-link cls disabled" id="v-cls_1-tab" data-toggle="tab" href="#v-cls_1" role="tab" aria-controls="v-cls_1" aria-selected="false">Class 1</a>
+      <a class="nav-link cls disabled" id="v-cls_2-tab" data-toggle="tab" href="#v-cls_2" role="tab" aria-controls="v-cls_2" aria-selected="false">Class 2</a>
+      <a class="nav-link cls disabled" id="v-cls_3-tab" data-toggle="tab" href="#v-cls_3" role="tab" aria-controls="v-cls_3" aria-selected="false">Class 3</a>
+      <a class="nav-link cls disabled" id="v-cls_4-tab" data-toggle="tab" href="#v-cls_4" role="tab" aria-controls="v-cls_4" aria-selected="false">Class 4</a>
+      <a class="nav-link cls disabled" id="v-cls_5-tab" data-toggle="tab" href="#v-cls_5" role="tab" aria-controls="v-cls_5" aria-selected="false">Class 5</a>
+      <a class="nav-link cls disabled" id="v-cls_6-tab" data-toggle="tab" href="#v-cls_6" role="tab" aria-controls="v-cls_6" aria-selected="false">Class 6</a>
+      <a class="nav-link cls disabled" id="v-cls_7-tab" data-toggle="tab" href="#v-cls_7" role="tab" aria-controls="v-cls_7" aria-selected="false">Class 7</a>
+      <a class="nav-link cls disabled" id="v-cls_8-tab" data-toggle="tab" href="#v-cls_8" role="tab" aria-controls="v-cls_8" aria-selected="false">Class 8</a>
+      <a class="nav-link cls disabled" id="v-cls_9-tab" data-toggle="tab" href="#v-cls_9" role="tab" aria-controls="v-cls_9" aria-selected="false">Class 9</a>
+      <a class="nav-link cls" id="v-cls_10-tab" data-toggle="tab" href="#v-cls_10" role="tab" aria-controls="v-cls_10" aria-selected="false">Class 10</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="tab-content" id="v-tabContent">
+    {% if show_1 %}
+            <div class="tab-pane fade active show" id="v-cls_1" role="tabpanel" aria-labelledby="v-cls_1-tab">
+            {% for i in clas_1 %}
+                <div class="card">
+                    <a href="{{ i.file_link }}" target="_blank">
+                    <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                    <div class="card-body">
+                    <div class="card-text">{{ i.file_name }}</div>
+                    </div>
+                </a>
+                </div>
+            {% endfor %}
+            </div>
+      {% elif show_2 %}
+      <div class="tab-pane fade active show" id="v-cls_2" role="tabpanel" aria-labelledby="v-cls_2-tab">
+      {% for i in clas_2 %}
+                <div class="card">
+                    <a href="{{ i.file_link }}" target="_blank">
+                    <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                    <div class="card-body">
+                    <div class="card-text">{{ i.file_name }}</div>
+                    </div>
+                </a>
+                </div>
+                {% endfor %}
+            </div>
+      {% elif show_3 %}
+      <div class="tab-pane fade active show" id="v-cls_3" role="tabpanel" aria-labelledby="v-cls_3-tab">
+      {% for i in clas_3 %}
+                <div class="card">
+                    <a href="{{ i.file_link }}" target="_blank">
+                    <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                    <div class="card-body">
+                    <div class="card-text">{{ i.file_name }}</div>
+                    </div>
+                </a>
+                </div>
+                {% endfor %}
+            </div>
+      {% elif show_4 %}
+      <div class="tab-pane fade active show" id="v-cls_4" role="tabpanel" aria-labelledby="v-cls_4-tab">
+      {% for i in clas_4 %}
+                <div class="card">
+                    <a href="{{ i.file_link }}" target="_blank">
+                    <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                    <div class="card-body">
+                    <div class="card-text">{{ i.file_name }}</div>
+                    </div>
+                </a>
+                </div>
+                {% endfor %}
+            </div>
+      {% elif show_5 %}
+      <div class="tab-pane fade active show" id="v-cls_5" role="tabpanel" aria-labelledby="v-cls_5-tab">
+      {% for i in clas_5 %}
+                <div class="card">
+                    <a href="{{ i.file_link }}" target="_blank">
+                    <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                    <div class="card-body">
+                    <div class="card-text">{{ i.file_name }}</div>
+                    </div>
+                </a>
+                </div>
+                {% endfor %}
+            </div>
+      {% elif show_6 %}
+      <div class="tab-pane fade active show" id="v-cls_6" role="tabpanel" aria-labelledby="v-cls_6-tab">
+      {% for i in clas_6 %}
+                <div class="card">
+                    <a href="{{ i.file_link }}" target="_blank">
+                    <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                    <div class="card-body">
+                    <div class="card-text">{{ i.file_name }}</div>
+                    </div>
+                </a>
+                </div>
+                {% endfor %}
+            </div>
+      {% elif show_7 %}
+      <div class="tab-pane fade active show" id="v-cls_7" role="tabpanel" aria-labelledby="v-cls_7-tab">
+      {% for i in clas_7 %}
+                <div class="card">
+                    <a href="{{ i.file_link }}" target="_blank">
+                    <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+                    <div class="card-body">
+                    <div class="card-text">{{ i.file_name }}</div>
+                    </div>
+                </a>
+                </div>
+                {% endfor %}
+            </div>
+      {% elif show_8 %}
+      <div class="tab-pane fade active show" id="v-cls_8" role="tabpanel" aria-labelledby="v-cls_8-tab">
+        {% for i in clas_8 %}
+        <div class="card">
+            <a href="{{ i.file_link }}" target="_blank">
+            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+            <div class="card-body">
+            <div class="card-text">{{ i.file_name }}</div>
+            </div>
+        </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% elif show_9 %}
+      <div class="tab-pane fade active show" id="v-cls_9" role="tabpanel" aria-labelledby="v-cls_9-tab">
+        {% for i in clas_9 %}
+        <div class="card">
+            <a href="{{ i.file_link }}" target="_blank">
+            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+            <div class="card-body">
+            <div class="card-text">{{ i.file_name }}</div>
+            </div>
+        </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% elif show_10 %}
+      <div class="tab-pane fade active show" id="v-cls_10" role="tabpanel" aria-labelledby="v-cls_10-tab">
+        {% for i in clas_10 %}
+        <div class="card">
+            <a href="{{ i.file_link }}" target="_blank">
+            <img src="/static/pdf.png" class="card-img-top" alt="pdf_file_image">
+            <div class="card-body">
+            <div class="card-text">{{ i.file_name }}</div>
+            </div>
+        </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<div class="row"></div>
+    </div>
+
+{% endblock body %}

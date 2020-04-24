@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+    {% block style %}
+    {% endblock style %}
+    
+    <style>
+      
+      ::-webkit-scrollbar
+      {
+        width: 25px;
+      }
+      ::-webkit-scrollbar-track
+      {
+        border: 7px solid #232943;
+        box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.5);
+      }
+      ::-webkit-scrollbar-thumb
+      {
+        background: linear-gradient( 45deg, cyan, lawngreen);
+        border-radius: 15px;
+      }
+    </style>
+    
+    <title>
+    {% block title %}
+    {% endblock title %}
+    </title>
+    
+  </head>
+  <body style="color: cyan; background-color: black;">
+    
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style=" border-bottom: 6px; border-top: 0; border-left: 0; border-right: 0; border-color: greenyellow; border-style: ridge; background-color: black;">
+            <a class="navbar-brand" style="color: lime; font-family: sans-serif; font-size: 30px; font-family:cursive; font-weight: 1000; text-shadow:2px 2px blue;" href="/">EDULICIOUS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a style="color: lime; font-family: sans-serif; font-size: 25px;" class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/notes">Notes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/#reach">Reach Us</a>
+                </li>
+              </ul>
+              {% if user.is_authenticated %}
+                <ul class="navbar-nav px-3">
+                  <li class="nav-item">
+                    <a class="nav-link active" style="color: lime; font-family: sans-serif; font-size: 25px;">Welcome  <strong class="mx-2">{{ user.username }}</strong></a>
+                  </li>
+                  {% if user.username == "Alankar" %}
+                    <li class="nav-item">
+                      <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/admin">Admin Panel</a>
+                    </li>
+                  {% endif %}
+                  <li class="nav-item">
+                    <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/logout">Logout</a>
+                  </li>
+                </ul>
+              {% else %}
+              <ul class="navbar-nav px-3">
+                <li class="nav-item">
+                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="color: lime; font-family: sans-serif; font-size: 25px;" href="/register">Register</a>
+                </li>
+                
+              </ul>
+              {% endif %}
+            </div>
+          </nav>
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                <a class="alert-link">{{ message }}</a>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% block body %}
+          {% endblock body %}
+
+        {% block js %}
+        {% endblock js %}
+        <br><br>
+<!-- 
+        <nav class="navbar navbar-dark bg-dark fixed-bottom " style=" border-bottom: 0; border-top: 3px; border-left: 0; border-right: 0; border-color: greenyellow; border-style: ridge;">
+          <h6 class="text-center">© EDULICIOUS</h6>
+        </nav> -->
+        <footer class="footer fixed-bottom" style=" border-bottom: 0; border-top: 3px; border-left: 0; border-right: 0; border-color: greenyellow; border-style: ridge; position: -webkit-sticky; background-color: black;">
+          <div class="container text-center" style="margin-bottom: -3px;">
+            <h5>© EDULICIOUS</h5>
+          </div>
+        </footer>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

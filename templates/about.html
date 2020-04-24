@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	EDULICIOUS - About
+{% endblock title %}
+
+{% block style %}
+
+<style>
+    .display-4
+    {
+        font-family: cursive;
+        text-shadow: 0px 15px 5px rgba(245, 3, 3, 0.63),
+                 10px 20px 5px rgba(12, 228, 30, 0.459),
+                 -10px 20px 5px rgba(49, 14, 247, 0.507);
+                 font-size: 80px;
+  color: rgb(255, 255, 0);
+  text-align: center;
+  font-weight: bolder;
+    }
+    
+
+</style>
+
+{% endblock style %}
+
+{% block body %}
+    
+    <div class="container">
+        <div class="jumbotron" style="background-color: black;">
+            <div class="display-4">EDULICIOUS</div>
+            <br>
+            <h3 class="text-center" style="font-size: 40px;">
+            <strong>Providing Education In A Delicious Manner</strong></h3>
+            <p class="lead" style="font-size: 30px; font-family: Verdana, Geneva, Tahoma, sans-serif;">This is an institution where students get the best education after the school hours and we ensure that your children will love the way we teach. The quality of our assignments and notes are best.</p>
+            <hr width="80%" style="color: lawngreen; height: 3px; background-color: lawngreen;">
+            <p style="font-size: 20px;">Want our services! Contact Us or Register</p>
+            <a class="btn btn-primary btn-lg" href="/contact" role="button">Contact Us</a>
+            <a class="btn btn-primary btn-lg ml-3" href="/register" role="button">Register</a>
+          </div>
+    </div>
+
+{% endblock body %}

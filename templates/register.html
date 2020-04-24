@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+	EDULICIOUS - Register
+{% endblock title %}
+
+{% block body %}
+    
+    <div class="container">
+        <div class="my-3">
+            <h1 class="text-center">
+                Register at EDULICIOUS
+            </h1>
+        </div>
+        <div class="card" style="background-color: black;">
+            <article class="card-body mx-auto" style="max-width: 700px;">
+                
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">
+                            Register
+                        </button>
+                    </div>                                                          
+                </form>
+                <hr width="100%" style="color: lawngreen; height: 2px; background-color: lawngreen;">
+            <p class="text-center">Already have an account? <a style="color: lawngreen;" href="/login">Log In</a> </p>
+            </article>
+            </div>
+    </div>
+
+{% endblock body %}
+
+{% block js %}
+
+    <script>
+        {% if thank %}
+            alert('Thanks for registering. You will get a message or an email regarding the verification very soon!');
+            document.location = "/";
+        {% endif %}
+    </script>
+
+{% endblock js %}
